@@ -60,24 +60,10 @@
 
   .hero-visual { position: relative; }
   .hero-visual img {
-    width: 100%; max-width: 360px; display: block; margin: 0 auto;
-    border-radius: 16px; box-shadow: 0 18px 50px rgba(0,0,0,.55);
+    width: 100%; max-width: 440px; display: block; margin: 0 auto;
+    border-radius: 16px; box-shadow: 0 0 40px rgba(240,182,76,.14), 0 18px 50px rgba(0,0,0,.55);
   }
-  .bubble {
-    position: absolute; background: #fffdf6; color: #33302a;
-    font-size: .8rem; font-weight: 700; line-height: 1.4;
-    padding: 8px 14px; border-radius: 14px;
-    box-shadow: 0 0 18px rgba(240,182,76,.35), 0 4px 14px rgba(0,0,0,.4);
-    white-space: nowrap;
-  }
-  .bubble::after {
-    content: ""; position: absolute; left: 18px; bottom: -7px;
-    border: 8px solid transparent; border-top-color: #fffdf6; border-bottom: 0;
-  }
-  .bubble small { display: block; font-weight: 500; color: #9a9182; font-size: .68rem; text-align: right; }
-  .b1 { top: 6%; left: -6%; transform: rotate(-2deg); }
-  .b2 { top: 30%; right: -4%; transform: rotate(1.5deg); }
-  .b3 { bottom: 14%; left: -2%; transform: rotate(-1deg); }
+  .hero-visual .cap { text-align: center; color: var(--sub); font-size: .78rem; font-weight: 500; margin: 10px 0 0; }
 
   .hero-band {
     background: rgba(240,182,76,.1); border-top: 1px solid rgba(240,182,76,.25);
@@ -168,9 +154,8 @@
 
   @media (max-width: 680px) {
     .hero-inner { grid-template-columns: 1fr; padding-top: 38px; }
-    .hero-visual { margin-top: 26px; }
-    .hero-visual img { max-width: 300px; }
-    .b1 { left: 0; } .b2 { right: 0; } .b3 { left: 4%; }
+    .hero-visual { margin-top: 22px; }
+    .hero-visual img { max-width: 100%; }
     .sample-grid { grid-template-columns: 1fr; }
   }
 </style>
@@ -186,10 +171,7 @@
         <p class="hero-note">月に紹介したい人数に合わせて、4つのプランからお選びください。表示はすべて<b>税込</b>、どのプランも初回のみ初期設定費 <b>1,000円</b>が加わります。</p>
       </div>
       <div class="hero-visual">
-        <img src="img/hero-night.jpg" alt="夕暮れの窓辺でくつろぐ女性のイラスト">
-        <span class="bubble b1">友だち追加がありました<small>19:24</small></span>
-        <span class="bubble b2">30秒診断が完了しました<small>20:08</small></span>
-        <span class="bubble b3">相談の希望が届きました！<small>21:15</small></span>
+        <img src="img/hero-m4.jpg" alt="公式LINE「商品を見る」の配信画面：夜のデスクで備えを考える女性のイラスト">
       </div>
     </div>
     <div class="hero-band">気になるプランのボタンから、そのままお申込みいただけます</div>
@@ -249,10 +231,10 @@
       <p class="samples-lead">公式LINEでは、こんな雰囲気のご案内が届きます（実際の配信画面の一例です）。</p>
       <div class="sample-grid">
         <div>
-          <img src="img/sample-step3.jpg" alt="配信画面の例：なぜ、掛金を抑えられるの？">
+          <img src="img/sample-hopemax.jpg" alt="配信画面の例：生きる希望MAX のご案内">
         </div>
         <div>
-          <img src="img/sample-hopea-r1.jpg" alt="配信画面の例：生きる希望α のご案内">
+          <img src="img/sample-step3.jpg" alt="配信画面の例：なぜ、掛金を抑えられるの？">
         </div>
       </div>
       <p class="sample-cap">※配信画面の一例です。内容・数字は配信時点のものです。</p>
