@@ -148,6 +148,19 @@
   }
   .notes ul { margin: 0; padding-left: 1.3em; }
   .notes li { margin: 5px 0; }
+  .member {
+    margin: 26px 0 0; padding: 20px 24px; background: var(--card);
+    border: 1px solid var(--line); border-radius: 16px; text-align: center;
+  }
+  .member-title { margin: 0 0 4px; font-weight: 900; font-size: 1.02rem; }
+  .member-desc { margin: 0 0 14px; color: var(--sub); font-size: .88rem; }
+  .member-btn {
+    display: inline-block; text-decoration: none; font-weight: 700; font-size: .95rem;
+    color: var(--amber); border: 1.5px solid var(--amber); border-radius: 999px;
+    padding: 10px 26px; min-height: 44px;
+  }
+  .member-btn:active { background: rgba(240,182,76,.12); }
+
   .foot { padding: 28px 0 64px; font-size: .88rem; text-align: center; }
   .foot a { color: var(--green); font-weight: 700; }
 
@@ -253,6 +266,12 @@
         <li>決済画面では、代理店名（屋号）・担当者氏名・通知の受け取り先・電話番号をおうかがいします。</li>
         <li>決済の確認後、専用QRコードの発行など初期設定のご案内を差し上げます。</li>
       </ul>
+    </div>
+
+    <div class="member">
+      <p class="member-title">ご契約中の方</p>
+      <p class="member-desc">解約・カード変更・領収書のダウンロードは、お申込み時のメールアドレスでログインしてお手続きください。</p>
+      <a class="member-btn" href="https://billing.stripe.com/p/login/aFa8wR2Fi4Jp88saKafjG00">契約の管理ページを開く</a>
     </div>
 
     <p class="foot">
