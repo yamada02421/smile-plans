@@ -4,119 +4,203 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>料金プラン｜いきいきスマイル共済 公式LINE宣伝パック</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #ffffff; --fg: #1a1a1a; --sub: #666666; --line: #e2e2e2;
-    --green: #2e7d32; --green-bg: #e8f5e9; --cta: #ff8f00; --card: #f7f8f7;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #14161a; --fg: #e9eaec; --sub: #a0a4ab; --line: #2c313a;
-      --green: #7fc98a; --green-bg: #1e2b20; --card: #1b1e24;
-    }
+    --cream: #fdfaf1; --cream2: #f7f1e2; --fg: #2b2b2b; --sub: #6b6459;
+    --green: #2e7d32; --green-soft: #e8f5e9; --navy: #1e3a5f;
+    --cta: #ff8f00; --yellow: #fdeeb5; --line: #e8e0cd;
   }
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
-    margin: 0; background: var(--bg); color: var(--fg);
-    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN",
-                 "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
-    line-height: 1.7; font-size: 16px;
+    margin: 0; background: var(--cream); color: var(--fg);
+    font-family: "Zen Maru Gothic", -apple-system, "Hiragino Kaku Gothic ProN",
+                 "Noto Sans JP", Meiryo, sans-serif;
+    font-weight: 500; line-height: 1.8; font-size: 16px;
   }
-  .wrap { max-width: 960px; margin: 0 auto; padding: 36px 20px 80px; }
-  h1 { font-size: 1.7rem; margin: 0 0 4px; }
-  .brand { color: var(--green); font-weight: 700; font-size: .95rem; margin: 0 0 2px; }
-  .lead { color: var(--sub); font-size: .95rem; margin: 10px 0 28px; }
-  .lead strong { color: var(--fg); }
+  .wrap { max-width: 1020px; margin: 0 auto; padding: 0 20px; }
 
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; }
+  /* ---------- hero ---------- */
+  .hero { position: relative; overflow: hidden; background:
+    linear-gradient(180deg, #fdfaf1 0%, #f4efdf 100%); }
+  .hero-inner {
+    display: grid; grid-template-columns: 1.2fr .8fr; gap: 12px;
+    align-items: center; max-width: 1020px; margin: 0 auto; padding: 40px 20px 0;
+  }
+  .badge-navy {
+    display: inline-block; background: var(--navy); color: #ffffff;
+    font-weight: 700; font-size: .92rem; padding: 4px 18px; border-radius: 10px;
+    margin-bottom: 14px; letter-spacing: .04em;
+  }
+  h1 {
+    font-weight: 900; font-size: clamp(1.9rem, 5.4vw, 3.1rem);
+    line-height: 1.35; margin: 0 0 14px; letter-spacing: .02em;
+    text-shadow: 2px 2px 0 #fff, -2px 2px 0 #fff, 2px -2px 0 #fff, -2px -2px 0 #fff;
+  }
+  h1 .green { color: var(--green); }
+  h1 .marker { background: linear-gradient(transparent 68%, #ffe27a 68%); }
+  .hero-lead { color: var(--sub); font-weight: 700; margin: 0 0 6px; }
+  .hero-note { color: var(--sub); font-size: .9rem; margin: 0 0 24px; }
+  .hero-note b { color: var(--fg); }
+  .hero-img { align-self: end; text-align: center; }
+  .hero-img img {
+    width: min(300px, 72%); border-radius: 18px 18px 0 0; display: inline-block;
+    box-shadow: 0 10px 30px rgba(60,50,20,.18); vertical-align: bottom;
+  }
+  .hero-band { background: var(--yellow); padding: 12px 20px; text-align: center;
+    font-weight: 700; font-size: 1.02rem; }
+  @media (max-width: 640px) {
+    .hero-inner { grid-template-columns: 1fr; padding-top: 30px; }
+    .hero-img img { width: min(230px, 60%); }
+  }
+
+  /* ---------- plans ---------- */
+  .plans { padding: 40px 0 8px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(225px, 1fr)); gap: 18px; }
   .card {
-    border: 1px solid var(--line); border-radius: 14px; padding: 22px 20px 20px;
-    background: var(--bg); display: flex; flex-direction: column; position: relative;
+    background: #ffffff; border: 1px solid var(--line); border-radius: 20px;
+    padding: 26px 22px 22px; display: flex; flex-direction: column; position: relative;
+    box-shadow: 0 4px 14px rgba(80,65,30,.06);
   }
-  .card.reco { border: 2px solid var(--green); background: var(--green-bg); }
-  .badge {
-    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-    background: var(--green); color: #ffffff; font-size: .78rem; font-weight: 700;
-    padding: 2px 14px; border-radius: 999px; white-space: nowrap;
+  .card.reco { border: 2.5px solid var(--green); background: #fbfff8; }
+  .reco-badge {
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--green); color: #ffffff; font-size: .8rem; font-weight: 700;
+    padding: 3px 16px; border-radius: 999px; white-space: nowrap;
   }
-  .plan { font-weight: 700; font-size: 1.05rem; margin: 0 0 10px; }
-  .price { font-size: 1.9rem; font-weight: 700; line-height: 1.2; margin: 0; }
-  .price small { font-size: .85rem; font-weight: 400; color: var(--sub); }
-  .cap { margin: 10px 0 4px; font-weight: 600; }
+  .plan-name {
+    display: inline-block; align-self: flex-start; background: var(--navy); color: #ffffff;
+    font-weight: 700; font-size: .95rem; padding: 3px 14px; border-radius: 9px; margin: 0 0 14px;
+  }
+  .price { font-weight: 900; font-size: 2.1rem; line-height: 1.15; margin: 0; letter-spacing: .01em; }
+  .price small { font-size: .9rem; font-weight: 700; color: var(--sub); }
+  .cap { margin: 12px 0 6px; font-weight: 900; font-size: 1.02rem; }
+  .cap .marker { background: linear-gradient(transparent 66%, #ffe27a 66%); }
   .cap b { color: var(--green); }
-  .desc { color: var(--sub); font-size: .88rem; margin: 0 0 16px; flex: 1; }
+  .desc { color: var(--sub); font-size: .88rem; margin: 0 0 18px; flex: 1; }
   .cta {
     display: block; text-align: center; text-decoration: none;
-    background: var(--cta); color: #1a1a1a; font-weight: 700; font-size: 1rem;
-    padding: 13px 10px; border-radius: 10px; min-height: 44px;
+    background: var(--cta); color: #1a1a1a; font-weight: 900; font-size: 1.02rem;
+    padding: 14px 10px; border-radius: 999px; min-height: 44px;
+    box-shadow: 0 3px 0 #d97800;
   }
-  .cta:active { opacity: .85; }
+  .cta:active { transform: translateY(2px); box-shadow: none; }
 
-  .notes { margin: 30px 0 0; padding: 16px 18px; background: var(--card);
-    border: 1px solid var(--line); border-radius: 10px; font-size: .88rem; color: var(--sub); }
+  /* ---------- samples ---------- */
+  .samples { padding: 46px 0 10px; }
+  h2 {
+    font-weight: 900; font-size: 1.45rem; margin: 0 0 6px; text-align: center;
+  }
+  h2 .marker { background: linear-gradient(transparent 68%, #ffe27a 68%); }
+  .samples-lead { text-align: center; color: var(--sub); font-size: .92rem; margin: 0 0 22px; }
+  .sample-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .sample-grid img {
+    width: 100%; border-radius: 14px; border: 1px solid var(--line); display: block;
+    box-shadow: 0 4px 14px rgba(80,65,30,.08);
+  }
+  .sample-cap { text-align: center; color: var(--sub); font-size: .82rem; margin-top: 10px; }
+  @media (max-width: 640px) { .sample-grid { grid-template-columns: 1fr; } }
+
+  /* ---------- notes / footer ---------- */
+  .notes {
+    margin: 40px 0 0; padding: 20px 22px; background: var(--green-soft);
+    border-radius: 16px; font-size: .9rem; color: #3c463c;
+  }
   .notes ul { margin: 0; padding-left: 1.3em; }
-  .notes li { margin: 4px 0; }
-  .foot { margin-top: 28px; font-size: .88rem; color: var(--sub); }
-  .foot a { color: var(--green); }
+  .notes li { margin: 5px 0; }
+  .foot { padding: 26px 0 60px; font-size: .88rem; color: var(--sub); text-align: center; }
+  .foot a { color: var(--green); font-weight: 700; }
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <p class="brand">いきいきスマイル共済 公式LINE宣伝パック</p>
-  <h1>料金プラン</h1>
-  <p class="lead">月に紹介したい人数に合わせてお選びください。表示はすべて<strong>税込</strong>です。<br>どのプランも、初回のみ初期設定費 <strong>1,000円</strong>（税込）が加わります。</p>
+  <header class="hero">
+    <div class="hero-inner">
+      <div>
+        <span class="badge-navy">代理店オーナー向け</span>
+        <h1>えらべる、<br><span class="green">4つの料金プラン</span>。</h1>
+        <p class="hero-lead">いきいきスマイル共済 公式LINE宣伝パック</p>
+        <p class="hero-note">月に紹介したい人数に合わせてお選びください。表示はすべて<b>税込</b>、どのプランも初回のみ初期設定費 <b>1,000円</b>が加わります。</p>
+      </div>
+      <div class="hero-img">
+        <img src="img/hero-chara.jpg" alt="ご案内するスタッフのイラスト">
+      </div>
+    </div>
+    <div class="hero-band">気になるプランのボタンから、そのままお申込みいただけます</div>
+  </header>
 
-  <div class="grid">
+  <main class="wrap">
 
-    <div class="card">
-      <p class="plan">エントリー</p>
-      <p class="price">¥500<small>／月</small></p>
-      <p class="cap">友だち紹介 <b>月3人</b>まで</p>
-      <p class="desc">まずは小さく試したい方に。</p>
-      <a class="cta" href="https://buy.stripe.com/aFa8wR2Fi4Jp88saKafjG00">このプランで申し込む</a>
+    <section class="plans">
+      <div class="grid">
+
+        <div class="card">
+          <span class="plan-name">エントリー</span>
+          <p class="price">¥500<small>／月</small></p>
+          <p class="cap"><span class="marker">友だち紹介 <b>月3人</b>まで</span></p>
+          <p class="desc">まずは小さく試したい方に。</p>
+          <a class="cta" href="https://buy.stripe.com/aFa8wR2Fi4Jp88saKafjG00">このプランで申し込む</a>
+        </div>
+
+        <div class="card reco">
+          <span class="reco-badge">おすすめ</span>
+          <span class="plan-name">スタンダード</span>
+          <p class="price">¥1,480<small>／月</small></p>
+          <p class="cap"><span class="marker">友だち紹介 <b>月10人</b>まで</span></p>
+          <p class="desc">いちばん選ばれている標準プランです。</p>
+          <a class="cta" href="https://buy.stripe.com/9B614pcfScbR0G06tUfjG01">このプランで申し込む</a>
+        </div>
+
+        <div class="card">
+          <span class="plan-name">プロ</span>
+          <p class="price">¥3,980<small>／月</small></p>
+          <p class="cap"><span class="marker">友だち紹介 <b>月30人</b>まで</span></p>
+          <p class="desc">積極的に紹介を広げたい方に。</p>
+          <a class="cta" href="https://buy.stripe.com/14AcN76Vygs7ewQdWmfjG02">このプランで申し込む</a>
+        </div>
+
+        <div class="card">
+          <span class="plan-name">カスタム（30人以上）</span>
+          <p class="price">¥120<small>／人・月</small></p>
+          <p class="cap"><span class="marker">友だち紹介 <b>月30人以上</b></span></p>
+          <p class="desc">決済画面の「数量」に月の紹介人数（30以上）を入力してください。例：50人なら月6,000円、100人なら月12,000円。</p>
+          <a class="cta" href="https://buy.stripe.com/bJe6oJ2Fi6Rx3Sc6tUfjG03">人数を入れて申し込む</a>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="samples">
+      <h2><span class="marker">お客さまに届く、配信のイメージ</span></h2>
+      <p class="samples-lead">公式LINEでは、こんな雰囲気のご案内が届きます（実際の配信画面の一例です）。</p>
+      <div class="sample-grid">
+        <div>
+          <img src="img/sample-m4.jpg" alt="配信画面の例：くらしの、いろいろな安心。">
+        </div>
+        <div>
+          <img src="img/sample-hopea.jpg" alt="配信画面の例：生きる希望α のご案内">
+        </div>
+      </div>
+      <p class="sample-cap">※配信画面の一例です。内容・数字は配信時点のものです。</p>
+    </section>
+
+    <div class="notes">
+      <ul>
+        <li>お支払いはクレジットカード（決済代行：Stripe）です。毎月自動で更新されます。</li>
+        <li>解約はいつでも可能です（当月末まで有効・日割りの返金はありません）。</li>
+        <li>決済画面では、代理店名（屋号）・担当者氏名・通知の受け取り先・電話番号をおうかがいします。</li>
+        <li>決済の確認後、専用QRコードの発行など初期設定のご案内を差し上げます。</li>
+      </ul>
     </div>
 
-    <div class="card reco">
-      <span class="badge">おすすめ</span>
-      <p class="plan">スタンダード</p>
-      <p class="price">¥1,480<small>／月</small></p>
-      <p class="cap">友だち紹介 <b>月10人</b>まで</p>
-      <p class="desc">いちばん選ばれている標準プランです。</p>
-      <a class="cta" href="https://buy.stripe.com/9B614pcfScbR0G06tUfjG01">このプランで申し込む</a>
-    </div>
+    <p class="foot">
+      <a href="https://yamada02421.github.io/smile-legal/">特定商取引法に基づく表記・利用規約・プライバシーポリシー</a>
+    </p>
 
-    <div class="card">
-      <p class="plan">プロ</p>
-      <p class="price">¥3,980<small>／月</small></p>
-      <p class="cap">友だち紹介 <b>月30人</b>まで</p>
-      <p class="desc">積極的に紹介を広げたい方に。</p>
-      <a class="cta" href="https://buy.stripe.com/14AcN76Vygs7ewQdWmfjG02">このプランで申し込む</a>
-    </div>
+  </main>
 
-    <div class="card">
-      <p class="plan">カスタム（30人以上）</p>
-      <p class="price">¥120<small>／人・月</small></p>
-      <p class="cap">友だち紹介 <b>月30人以上</b>・人数指定</p>
-      <p class="desc">決済画面の「数量」に月の紹介人数（30以上）を入力してください。例：50人なら月6,000円、100人なら月12,000円。</p>
-      <a class="cta" href="https://buy.stripe.com/bJe6oJ2Fi6Rx3Sc6tUfjG03">人数を入れて申し込む</a>
-    </div>
-
-  </div>
-
-  <div class="notes">
-    <ul>
-      <li>お支払いはクレジットカード（決済代行：Stripe）です。毎月自動で更新されます。</li>
-      <li>解約はいつでも可能です（当月末まで有効・日割りの返金はありません）。</li>
-      <li>決済画面では、代理店名（屋号）・担当者氏名・通知の受け取り先・電話番号をおうかがいします。</li>
-      <li>決済の確認後、専用QRコードの発行など初期設定のご案内を差し上げます。</li>
-    </ul>
-  </div>
-
-  <p class="foot">
-    <a href="https://yamada02421.github.io/smile-legal/">特定商取引法に基づく表記・利用規約・プライバシーポリシー</a>
-  </p>
-
-</div>
 </body>
 </html>
