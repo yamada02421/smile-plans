@@ -108,17 +108,16 @@
   }
   .qty-box label { display: block; font-size: .8rem; color: var(--sub); font-weight: 700; margin-bottom: 6px; }
   .qty-row { display: flex; align-items: center; gap: 8px; }
-  .qty-row input {
-    width: 6.2em; font-size: 1.35rem; font-weight: 900; text-align: center;
+  .qty-row select {
+    width: 100%; font-size: 1.25rem; font-weight: 900; text-align: center;
     background: #12141b; color: #f7f3e8; border: 1.5px solid var(--amber);
-    border-radius: 10px; padding: 8px 6px; font-family: inherit;
+    border-radius: 10px; padding: 9px 8px; font-family: inherit; cursor: pointer;
   }
-  .qty-row input:focus { outline: 2px solid rgba(240,182,76,.5); }
-  .qty-unit { font-weight: 700; color: var(--fg); }
+  .qty-row select:focus { outline: 2px solid rgba(240,182,76,.5); }
   .qty-calc { margin: 8px 0 0; font-weight: 700; }
   .qty-calc b { color: var(--amber); font-size: 1.35rem; }
   .qty-calc small { color: var(--sub); font-weight: 500; }
-  .qty-warn { display: none; margin: 6px 0 0; color: #ff9a94; font-size: .8rem; font-weight: 700; }
+  .desc a.mail { color: var(--green); font-weight: 700; }
   .cta {
     display: block; text-align: center; text-decoration: none;
     background: var(--cta); color: #1a1a1a; font-weight: 900; font-size: 1.02rem;
@@ -208,19 +207,26 @@
         </div>
 
         <div class="card">
-          <span class="plan-name">カスタム（30人以上）</span>
+          <span class="plan-name">カスタム（40人以上）</span>
           <p class="price">¥120<small>／人・月</small></p>
-          <p class="cap"><span class="u">友だち紹介 <b>月30人以上</b></span></p>
+          <p class="cap"><span class="u">友だち紹介 <b>月40人以上</b></span></p>
           <div class="qty-box">
-            <label for="qty">月の紹介人数を入れてみる</label>
+            <label for="qsel">月の紹介人数をえらぶ</label>
             <div class="qty-row">
-              <input id="qty" type="number" min="30" max="999" step="1" value="50" inputmode="numeric"> <span class="qty-unit">人</span>
+              <select id="qsel">
+                <option value="40">40人</option>
+                <option value="50" selected>50人</option>
+                <option value="60">60人</option>
+                <option value="80">80人</option>
+                <option value="100">100人</option>
+                <option value="150">150人</option>
+                <option value="200">200人</option>
+              </select>
             </div>
             <p class="qty-calc">→ 月額 <b id="calc">6,000</b> 円<small>（税込）</small></p>
-            <p class="qty-warn" id="qty-warn">※30人以上で入力してください</p>
           </div>
-          <p class="desc">決済画面では「数量」の欄に、この人数をそのまま入力してください。</p>
-          <a class="cta" href="https://buy.stripe.com/bJe6oJ2Fi6Rx3Sc6tUfjG03">人数を入れて申し込む</a>
+          <p class="desc">えらんだ人数の金額で、そのまま申込画面が開きます。一覧にない人数は<a class="mail" href="mailto:takumi.o0205@icloud.com">メールでご相談ください</a>（専用の申込リンクを発行します）。</p>
+          <a class="cta" id="custom-cta" href="https://buy.stripe.com/3cIeVf1Begs79cw05wfjG05">この人数で申し込む</a>
         </div>
 
       </div>
@@ -257,18 +263,24 @@
 
 <script>
   (function () {
-    var q = document.getElementById('qty');
+    var LINKS = {
+      "40":  "https://buy.stripe.com/00w00l1Be6RxfAU19AfjG04",
+      "50":  "https://buy.stripe.com/3cIeVf1Begs79cw05wfjG05",
+      "60":  "https://buy.stripe.com/cNi7sN2FidfVewQ7xYfjG06",
+      "80":  "https://buy.stripe.com/3cI3cx6VyejZ9cw2dEfjG07",
+      "100": "https://buy.stripe.com/7sY6oJ1BedfVgEY5pQfjG08",
+      "150": "https://buy.stripe.com/8x2cN77ZC4Jp74obOefjG09",
+      "200": "https://buy.stripe.com/fZu5kF4Nqa3J74o05wfjG0a"
+    };
+    var sel = document.getElementById('qsel');
     var calc = document.getElementById('calc');
-    var warn = document.getElementById('qty-warn');
+    var cta = document.getElementById('custom-cta');
     function update() {
-      var v = parseInt(q.value, 10);
-      var bad = !isFinite(v) || v < 30;
-      warn.style.display = bad ? 'block' : 'none';
-      var n = isFinite(v) ? Math.min(999, Math.max(30, v)) : 30;
+      var n = parseInt(sel.value, 10);
       calc.textContent = (n * 120).toLocaleString('ja-JP');
+      cta.href = LINKS[sel.value];
     }
-    q.addEventListener('input', update);
-    q.addEventListener('change', update);
+    sel.addEventListener('change', update);
     update();
   })();
 </script>
