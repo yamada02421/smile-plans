@@ -6,113 +6,155 @@
 <title>料金プラン｜いきいきスマイル共済 公式LINE宣伝パック</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #fdfaf1; --cream2: #f7f1e2; --fg: #2b2b2b; --sub: #6b6459;
-    --green: #2e7d32; --green-soft: #e8f5e9; --navy: #1e3a5f;
-    --cta: #ff8f00; --yellow: #fdeeb5; --line: #e8e0cd;
+    --bg: #171a22; --bg2: #1d212b; --card: #20242f; --line: #343947;
+    --fg: #ece7db; --sub: #b0a99b;
+    --amber: #f0b64c; --amber-deep: #e0a33d; --glow: rgba(240,182,76,.14);
+    --red: #e05656; --green: #8fd19a; --cta: #ff8f00;
   }
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
   body {
-    margin: 0; background: var(--cream); color: var(--fg);
+    margin: 0; background: var(--bg); color: var(--fg);
     font-family: "Zen Maru Gothic", -apple-system, "Hiragino Kaku Gothic ProN",
                  "Noto Sans JP", Meiryo, sans-serif;
-    font-weight: 500; line-height: 1.8; font-size: 16px;
+    font-weight: 500; line-height: 1.85; font-size: 16px;
   }
   .wrap { max-width: 1020px; margin: 0 auto; padding: 0 20px; }
+  .hand { font-family: "Klee One", "Zen Maru Gothic", sans-serif; }
 
-  /* ---------- hero ---------- */
-  .hero { position: relative; overflow: hidden; background:
-    linear-gradient(180deg, #fdfaf1 0%, #f4efdf 100%); }
-  .hero-inner {
-    display: grid; grid-template-columns: 1.2fr .8fr; gap: 12px;
-    align-items: center; max-width: 1020px; margin: 0 auto; padding: 40px 20px 0;
+  /* ---------- hero (夜のデスク風) ---------- */
+  .hero {
+    position: relative; overflow: hidden;
+    background:
+      radial-gradient(620px 420px at 12% -6%, var(--glow), transparent 62%),
+      radial-gradient(3px 3px at 78% 22%, rgba(255,214,140,.5), transparent 60%),
+      radial-gradient(2px 2px at 88% 46%, rgba(255,214,140,.35), transparent 60%),
+      radial-gradient(2.5px 2.5px at 70% 64%, rgba(255,214,140,.30), transparent 60%),
+      radial-gradient(2px 2px at 92% 74%, rgba(255,214,140,.25), transparent 60%),
+      linear-gradient(180deg, #151821 0%, #1b1f2a 100%);
   }
-  .badge-navy {
-    display: inline-block; background: var(--navy); color: #ffffff;
-    font-weight: 700; font-size: .92rem; padding: 4px 18px; border-radius: 10px;
-    margin-bottom: 14px; letter-spacing: .04em;
+  .hero-inner {
+    display: grid; grid-template-columns: 1.15fr .85fr; gap: 26px;
+    align-items: center; max-width: 1020px; margin: 0 auto; padding: 52px 20px 46px;
+  }
+  .badge {
+    display: inline-block; border: 1px solid var(--amber); color: var(--amber);
+    font-weight: 700; font-size: .88rem; padding: 3px 16px; border-radius: 999px;
+    margin-bottom: 18px; letter-spacing: .06em;
   }
   h1 {
-    font-weight: 900; font-size: clamp(1.9rem, 5.4vw, 3.1rem);
-    line-height: 1.35; margin: 0 0 14px; letter-spacing: .02em;
-    text-shadow: 2px 2px 0 #fff, -2px 2px 0 #fff, 2px -2px 0 #fff, -2px -2px 0 #fff;
+    font-family: "Klee One", "Zen Maru Gothic", sans-serif; font-weight: 600;
+    font-size: clamp(1.85rem, 5.2vw, 2.9rem); line-height: 1.55; margin: 0 0 16px;
+    letter-spacing: .04em; text-shadow: 0 0 24px rgba(240,182,76,.18);
   }
-  h1 .green { color: var(--green); }
-  h1 .marker { background: linear-gradient(transparent 68%, #ffe27a 68%); }
-  .hero-lead { color: var(--sub); font-weight: 700; margin: 0 0 6px; }
-  .hero-note { color: var(--sub); font-size: .9rem; margin: 0 0 24px; }
+  h1 .amber { color: var(--amber); }
+  h1 .u {
+    display: inline-block; border-bottom: 5px solid rgba(224,86,86,.8);
+    border-radius: 3px; transform: rotate(-.8deg); padding-bottom: 2px;
+  }
+  .hero-lead { color: var(--sub); font-weight: 700; margin: 0 0 6px; letter-spacing: .03em; }
+  .hero-note { color: var(--sub); font-size: .92rem; margin: 0; }
   .hero-note b { color: var(--fg); }
-  .hero-img { align-self: end; text-align: center; }
-  .hero-img img {
-    width: min(300px, 72%); border-radius: 18px 18px 0 0; display: inline-block;
-    box-shadow: 0 10px 30px rgba(60,50,20,.18); vertical-align: bottom;
+
+  .hero-visual { position: relative; }
+  .hero-visual img {
+    width: 100%; max-width: 360px; display: block; margin: 0 auto;
+    border-radius: 16px; box-shadow: 0 18px 50px rgba(0,0,0,.55);
   }
-  .hero-band { background: var(--yellow); padding: 12px 20px; text-align: center;
-    font-weight: 700; font-size: 1.02rem; }
-  @media (max-width: 640px) {
-    .hero-inner { grid-template-columns: 1fr; padding-top: 30px; }
-    .hero-img img { width: min(230px, 60%); }
+  .bubble {
+    position: absolute; background: #fffdf6; color: #33302a;
+    font-size: .8rem; font-weight: 700; line-height: 1.4;
+    padding: 8px 14px; border-radius: 14px;
+    box-shadow: 0 0 18px rgba(240,182,76,.35), 0 4px 14px rgba(0,0,0,.4);
+    white-space: nowrap;
+  }
+  .bubble::after {
+    content: ""; position: absolute; left: 18px; bottom: -7px;
+    border: 8px solid transparent; border-top-color: #fffdf6; border-bottom: 0;
+  }
+  .bubble small { display: block; font-weight: 500; color: #9a9182; font-size: .68rem; text-align: right; }
+  .b1 { top: 6%; left: -6%; transform: rotate(-2deg); }
+  .b2 { top: 30%; right: -4%; transform: rotate(1.5deg); }
+  .b3 { bottom: 14%; left: -2%; transform: rotate(-1deg); }
+
+  .hero-band {
+    background: rgba(240,182,76,.1); border-top: 1px solid rgba(240,182,76,.25);
+    border-bottom: 1px solid rgba(240,182,76,.25);
+    padding: 10px 20px; text-align: center; font-weight: 700; font-size: .98rem;
+    color: #ffd98a; letter-spacing: .04em;
   }
 
   /* ---------- plans ---------- */
-  .plans { padding: 40px 0 8px; }
+  .plans { padding: 44px 0 8px; }
   .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(225px, 1fr)); gap: 18px; }
   .card {
-    background: #ffffff; border: 1px solid var(--line); border-radius: 20px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 18px;
     padding: 26px 22px 22px; display: flex; flex-direction: column; position: relative;
-    box-shadow: 0 4px 14px rgba(80,65,30,.06);
   }
-  .card.reco { border: 2.5px solid var(--green); background: #fbfff8; }
+  .card.reco {
+    border: 1.5px solid var(--amber);
+    box-shadow: 0 0 30px rgba(240,182,76,.12);
+    background: linear-gradient(180deg, #262a36 0%, #20242f 100%);
+  }
   .reco-badge {
-    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-    background: var(--green); color: #ffffff; font-size: .8rem; font-weight: 700;
+    position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+    background: var(--amber-deep); color: #221c10; font-size: .8rem; font-weight: 900;
     padding: 3px 16px; border-radius: 999px; white-space: nowrap;
   }
   .plan-name {
-    display: inline-block; align-self: flex-start; background: var(--navy); color: #ffffff;
-    font-weight: 700; font-size: .95rem; padding: 3px 14px; border-radius: 9px; margin: 0 0 14px;
+    display: inline-block; align-self: flex-start;
+    border: 1px solid var(--line); background: #2a2e3a; color: var(--fg);
+    font-weight: 700; font-size: .92rem; padding: 3px 14px; border-radius: 9px; margin: 0 0 16px;
   }
-  .price { font-weight: 900; font-size: 2.1rem; line-height: 1.15; margin: 0; letter-spacing: .01em; }
+  .card.reco .plan-name { border-color: rgba(240,182,76,.5); color: var(--amber); }
+  .price { font-weight: 900; font-size: 2.1rem; line-height: 1.15; margin: 0; color: #f7f3e8; }
   .price small { font-size: .9rem; font-weight: 700; color: var(--sub); }
-  .cap { margin: 12px 0 6px; font-weight: 900; font-size: 1.02rem; }
-  .cap .marker { background: linear-gradient(transparent 66%, #ffe27a 66%); }
-  .cap b { color: var(--green); }
+  .cap { margin: 12px 0 6px; font-weight: 900; font-size: 1rem; }
+  .cap .u { border-bottom: 4px solid rgba(240,182,76,.55); border-radius: 2px; padding-bottom: 1px; }
+  .cap b { color: var(--amber); }
   .desc { color: var(--sub); font-size: .88rem; margin: 0 0 18px; flex: 1; }
   .cta {
     display: block; text-align: center; text-decoration: none;
     background: var(--cta); color: #1a1a1a; font-weight: 900; font-size: 1.02rem;
     padding: 14px 10px; border-radius: 999px; min-height: 44px;
-    box-shadow: 0 3px 0 #d97800;
+    box-shadow: 0 3px 0 #c67300, 0 0 24px rgba(255,143,0,.18);
   }
-  .cta:active { transform: translateY(2px); box-shadow: none; }
+  .cta:active { transform: translateY(2px); box-shadow: 0 0 24px rgba(255,143,0,.18); }
 
   /* ---------- samples ---------- */
-  .samples { padding: 46px 0 10px; }
+  .samples { padding: 50px 0 10px; }
   h2 {
-    font-weight: 900; font-size: 1.45rem; margin: 0 0 6px; text-align: center;
+    font-family: "Klee One", "Zen Maru Gothic", sans-serif; font-weight: 600;
+    font-size: 1.5rem; margin: 0 0 6px; text-align: center; letter-spacing: .05em;
   }
-  h2 .marker { background: linear-gradient(transparent 68%, #ffe27a 68%); }
-  .samples-lead { text-align: center; color: var(--sub); font-size: .92rem; margin: 0 0 22px; }
-  .sample-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  h2 .amber { color: var(--amber); }
+  .samples-lead { text-align: center; color: var(--sub); font-size: .92rem; margin: 0 0 24px; }
+  .sample-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
   .sample-grid img {
-    width: 100%; border-radius: 14px; border: 1px solid var(--line); display: block;
-    box-shadow: 0 4px 14px rgba(80,65,30,.08);
+    width: 100%; border-radius: 14px; display: block;
+    box-shadow: 0 10px 34px rgba(0,0,0,.5);
   }
-  .sample-cap { text-align: center; color: var(--sub); font-size: .82rem; margin-top: 10px; }
-  @media (max-width: 640px) { .sample-grid { grid-template-columns: 1fr; } }
+  .sample-cap { text-align: center; color: var(--sub); font-size: .82rem; margin-top: 12px; }
 
   /* ---------- notes / footer ---------- */
   .notes {
-    margin: 40px 0 0; padding: 20px 22px; background: var(--green-soft);
-    border-radius: 16px; font-size: .9rem; color: #3c463c;
+    margin: 42px 0 0; padding: 20px 24px; background: #1c2320;
+    border: 1px solid #2c3a30; border-radius: 16px; font-size: .9rem; color: #cfdccf;
   }
   .notes ul { margin: 0; padding-left: 1.3em; }
   .notes li { margin: 5px 0; }
-  .foot { padding: 26px 0 60px; font-size: .88rem; color: var(--sub); text-align: center; }
+  .foot { padding: 28px 0 64px; font-size: .88rem; text-align: center; }
   .foot a { color: var(--green); font-weight: 700; }
+
+  @media (max-width: 680px) {
+    .hero-inner { grid-template-columns: 1fr; padding-top: 38px; }
+    .hero-visual { margin-top: 26px; }
+    .hero-visual img { max-width: 300px; }
+    .b1 { left: 0; } .b2 { right: 0; } .b3 { left: 4%; }
+    .sample-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -120,13 +162,16 @@
   <header class="hero">
     <div class="hero-inner">
       <div>
-        <span class="badge-navy">代理店オーナー向け</span>
-        <h1>えらべる、<br><span class="green">4つの料金プラン</span>。</h1>
-        <p class="hero-lead">いきいきスマイル共済 公式LINE宣伝パック</p>
-        <p class="hero-note">月に紹介したい人数に合わせてお選びください。表示はすべて<b>税込</b>、どのプランも初回のみ初期設定費 <b>1,000円</b>が加わります。</p>
+        <span class="badge">代理店オーナー向け</span>
+        <h1>月々<span class="amber">500円</span>から、<br><span class="u">はじめられる。</span></h1>
+        <p class="hero-lead">いきいきスマイル共済 公式LINE宣伝パック｜料金プラン</p>
+        <p class="hero-note">月に紹介したい人数に合わせて、4つのプランからお選びください。表示はすべて<b>税込</b>、どのプランも初回のみ初期設定費 <b>1,000円</b>が加わります。</p>
       </div>
-      <div class="hero-img">
-        <img src="img/hero-chara.jpg" alt="ご案内するスタッフのイラスト">
+      <div class="hero-visual">
+        <img src="img/hero-night.jpg" alt="夕暮れの窓辺でくつろぐ女性のイラスト">
+        <span class="bubble b1">友だち追加がありました<small>19:24</small></span>
+        <span class="bubble b2">30秒診断が完了しました<small>20:08</small></span>
+        <span class="bubble b3">相談の希望が届きました！<small>21:15</small></span>
       </div>
     </div>
     <div class="hero-band">気になるプランのボタンから、そのままお申込みいただけます</div>
@@ -140,7 +185,7 @@
         <div class="card">
           <span class="plan-name">エントリー</span>
           <p class="price">¥500<small>／月</small></p>
-          <p class="cap"><span class="marker">友だち紹介 <b>月3人</b>まで</span></p>
+          <p class="cap"><span class="u">友だち紹介 <b>月3人</b>まで</span></p>
           <p class="desc">まずは小さく試したい方に。</p>
           <a class="cta" href="https://buy.stripe.com/aFa8wR2Fi4Jp88saKafjG00">このプランで申し込む</a>
         </div>
@@ -149,7 +194,7 @@
           <span class="reco-badge">おすすめ</span>
           <span class="plan-name">スタンダード</span>
           <p class="price">¥1,480<small>／月</small></p>
-          <p class="cap"><span class="marker">友だち紹介 <b>月10人</b>まで</span></p>
+          <p class="cap"><span class="u">友だち紹介 <b>月10人</b>まで</span></p>
           <p class="desc">いちばん選ばれている標準プランです。</p>
           <a class="cta" href="https://buy.stripe.com/9B614pcfScbR0G06tUfjG01">このプランで申し込む</a>
         </div>
@@ -157,7 +202,7 @@
         <div class="card">
           <span class="plan-name">プロ</span>
           <p class="price">¥3,980<small>／月</small></p>
-          <p class="cap"><span class="marker">友だち紹介 <b>月30人</b>まで</span></p>
+          <p class="cap"><span class="u">友だち紹介 <b>月30人</b>まで</span></p>
           <p class="desc">積極的に紹介を広げたい方に。</p>
           <a class="cta" href="https://buy.stripe.com/14AcN76Vygs7ewQdWmfjG02">このプランで申し込む</a>
         </div>
@@ -165,7 +210,7 @@
         <div class="card">
           <span class="plan-name">カスタム（30人以上）</span>
           <p class="price">¥120<small>／人・月</small></p>
-          <p class="cap"><span class="marker">友だち紹介 <b>月30人以上</b></span></p>
+          <p class="cap"><span class="u">友だち紹介 <b>月30人以上</b></span></p>
           <p class="desc">決済画面の「数量」に月の紹介人数（30以上）を入力してください。例：50人なら月6,000円、100人なら月12,000円。</p>
           <a class="cta" href="https://buy.stripe.com/bJe6oJ2Fi6Rx3Sc6tUfjG03">人数を入れて申し込む</a>
         </div>
@@ -174,14 +219,14 @@
     </section>
 
     <section class="samples">
-      <h2><span class="marker">お客さまに届く、配信のイメージ</span></h2>
+      <h2>お客さまに届く、<span class="amber">配信のイメージ</span></h2>
       <p class="samples-lead">公式LINEでは、こんな雰囲気のご案内が届きます（実際の配信画面の一例です）。</p>
       <div class="sample-grid">
         <div>
-          <img src="img/sample-m4.jpg" alt="配信画面の例：くらしの、いろいろな安心。">
+          <img src="img/sample-step3.jpg" alt="配信画面の例：なぜ、掛金を抑えられるの？">
         </div>
         <div>
-          <img src="img/sample-hopea.jpg" alt="配信画面の例：生きる希望α のご案内">
+          <img src="img/sample-hopea-r1.jpg" alt="配信画面の例：生きる希望α のご案内">
         </div>
       </div>
       <p class="sample-cap">※配信画面の一例です。内容・数字は配信時点のものです。</p>
